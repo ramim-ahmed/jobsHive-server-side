@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const jobSchmea = new Schema(
   {
-    user: {
+    buyer: {
       name: {
         type: String,
         required: true,

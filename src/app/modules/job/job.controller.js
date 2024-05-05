@@ -19,6 +19,23 @@ const createNewJob = async (req, res) => {
   }
 };
 
+const getAllJobsList = async (req, res) => {
+  try {
+    const result = await jobService.getAllJobsList();
+    res.status(httpStatus.OK).json({
+      success: true,
+      message: "Job All Fetch Successfully!!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(httpStatus.BAD_REQUEST).json({
+      success: false,
+      message: "Job All Fetch Failed!!",
+      error,
+    });
+  }
+};
 module.exports.jobController = {
   createNewJob,
+  getAllJobsList,
 };

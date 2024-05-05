@@ -5,6 +5,12 @@ const createNewJob = async (data) => {
   return result;
 };
 
+const getAllJobsList = async () => {
+  const result = await Job.find({}).sort({ createdAt: "desc" });
+  return result;
+};
+
 module.exports.jobService = {
   createNewJob,
+  getAllJobsList,
 };
