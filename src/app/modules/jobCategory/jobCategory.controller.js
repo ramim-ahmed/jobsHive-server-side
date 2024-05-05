@@ -19,6 +19,24 @@ const createJobCategory = async (req, res) => {
   }
 };
 
+const getAllJobCatgory = async (req, res) => {
+  try {
+    const result = await jobCategoryService.getAllJobCategory();
+    res.status(httpStatus.OK).json({
+      success: true,
+      message: "Job Category All Fetch successfully!!!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(httpStatus.OK).json({
+      success: false,
+      message: "Job Category All Fetch failed !!!",
+      error,
+    });
+  }
+};
+
 module.exports.jobCategoryController = {
   createJobCategory,
+  getAllJobCatgory,
 };
