@@ -11,7 +11,7 @@ const createJobCategory = async (req, res) => {
       data: result,
     });
   } catch (error) {
-    res.status(httpStatus.OK).json({
+    res.status(httpStatus.BAD_REQUEST).json({
       success: false,
       message: "Job category created failed !!!",
       error,
@@ -28,7 +28,7 @@ const getAllJobCatgory = async (req, res) => {
       data: result,
     });
   } catch (error) {
-    res.status(httpStatus.OK).json({
+    res.status(httpStatus.BAD_REQUEST).json({
       success: false,
       message: "Job Category All Fetch failed !!!",
       error,
