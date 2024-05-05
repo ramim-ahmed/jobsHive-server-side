@@ -1,0 +1,24 @@
+const httpStatus = require("http-status");
+const { jobCategoryService } = require("./jobCategory.service");
+
+const createJobCategory = async (req, res) => {
+  try {
+    const data = req.body;
+    const result = await jobCategoryService.createJobCategory(data);
+    res.status(httpStatus.OK).json({
+      success: true,
+      message: "Job category created successfully!!!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(httpStatus.OK).json({
+      success: false,
+      message: "Job category created failed !!!",
+      error,
+    });
+  }
+};
+
+module.exports.jobCategoryController = {
+  createJobCategory,
+};
