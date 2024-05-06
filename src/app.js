@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const httpStatus = require("http-status");
 const { applicationRoutes } = require("./app/routes");
 const notFoundApiHandler = require("./app/middlewares/notFoundApiHandler");
@@ -12,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cookieParser());
 // application routes
 app.get("/", (req, res) => {
   res.status(httpStatus.OK).json({

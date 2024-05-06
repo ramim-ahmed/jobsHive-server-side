@@ -4,6 +4,7 @@ const {
 } = require("../modules/jobCategory/jobCategory.route");
 const { jobRoutes } = require("../modules/job/job.route");
 const { bidRoutes } = require("../modules/bid/bid.route");
+const { tokenRoutes } = require("../modules/token/token.route");
 
 const router = express.Router();
 const moduleRoutes = [
@@ -18,6 +19,10 @@ const moduleRoutes = [
   {
     path: "/bids",
     route: bidRoutes,
+  },
+  {
+    path: "/token",
+    route: tokenRoutes,
   },
 ];
 
