@@ -21,7 +21,8 @@ const createNewBid = async (req, res) => {
 
 const getAllBidsList = async (req, res) => {
   try {
-    const result = await bidService.getAllBidsList();
+    const { email } = req.query;
+    const result = await bidService.getAllBidsList(email);
     res.status(httpStatus.OK).json({
       success: true,
       message: "Bid Placed Fetch All successfully!!",
