@@ -5,6 +5,12 @@ const createNewBid = async (data) => {
   return result;
 };
 
+const getAllBidsList = async () => {
+  const result = await Bid.find({}).sort({ createdAt: "desc" });
+  return result;
+};
+
 module.exports.bidService = {
   createNewBid,
+  getAllBidsList,
 };

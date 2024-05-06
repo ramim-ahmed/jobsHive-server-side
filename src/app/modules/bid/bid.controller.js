@@ -19,6 +19,24 @@ const createNewBid = async (req, res) => {
   }
 };
 
+const getAllBidsList = async (req, res) => {
+  try {
+    const result = await bidService.getAllBidsList();
+    res.status(httpStatus.OK).json({
+      success: true,
+      message: "Bid Placed Fetch All successfully!!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(httpStatus.BAD_REQUEST).json({
+      success: false,
+      message: "Bid Placed Fetch All Failed!!",
+      error,
+    });
+  }
+};
+
 module.exports.bidController = {
   createNewBid,
+  getAllBidsList,
 };
