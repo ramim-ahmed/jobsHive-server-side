@@ -25,6 +25,24 @@ const createNewToken = async (req, res) => {
   }
 };
 
+const clearCookieToken = async (req, res) => {
+  try {
+    const token = await tokenService.clearCookieToken();
+    res
+      .clearCookie(token, { ...cookieOptions, maxAge: 0 })
+      .status(httpStatus.OK)
+      .json({
+        success: true,
+      });
+  } catch (error) {
+    res.status(httpStatus.BAD_REQUEST).json({
+      success: false,
+      error,
+    });
+  }
+};
+
 module.exports.tokenController = {
   createNewToken,
+  clearCookieToken,
 };

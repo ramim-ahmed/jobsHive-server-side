@@ -6,6 +6,11 @@ const createNewToken = async (user) => {
   return token;
 };
 
+const clearCookieToken = async () => {
+  return "access_token";
+};
+
 module.exports.tokenService = {
   createNewToken,
+  clearCookieToken,
 };
