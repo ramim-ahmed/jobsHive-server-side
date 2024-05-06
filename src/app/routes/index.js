@@ -3,6 +3,7 @@ const {
   jobCategoryRoutes,
 } = require("../modules/jobCategory/jobCategory.route");
 const { jobRoutes } = require("../modules/job/job.route");
+const { bidRoutes } = require("../modules/bid/bid.route");
 
 const router = express.Router();
 const moduleRoutes = [
@@ -13,6 +14,10 @@ const moduleRoutes = [
   {
     path: "/jobs",
     route: jobRoutes,
+  },
+  {
+    path: "/bids",
+    route: bidRoutes,
   },
 ];
 

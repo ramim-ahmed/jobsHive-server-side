@@ -35,6 +35,10 @@ const bidSchema = new Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      default: "Pending",
+    },
   },
   {
     toJSON: {
